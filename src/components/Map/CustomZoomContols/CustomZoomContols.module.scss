@@ -1,0 +1,52 @@
+.controls_container {
+  position: absolute;
+  right: 20px;
+  top: 23%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1000;
+}
+
+.zoom_group {
+  background: #fff;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.zoom_button {
+  background: none;
+  border: none;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fullscreen_button {
+  width: 36px;
+  height: 36px;
+  background: #fff;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.zoom_button img {
+  filter: brightness(0) saturate(100%);
+}
+
+@media (max-width: 768px) {
+  .controls_container {
+    right: 16px;
+  }
+}

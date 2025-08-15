@@ -1,0 +1,106 @@
+.carouselWrapper {
+  width: 100%;
+  padding: 20px 0;
+  margin-bottom: 180px;
+  position: relative;
+  overflow: visible;
+
+  h2 {
+    text-align: start;
+    color: #293241;
+    font-weight: 700;
+    font-size: 48px;
+    font-family: Montserrat;
+    margin-bottom: 35px;
+  }
+}
+
+.customSwiper {
+  overflow: visible;
+
+  .swiper-slide {
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    margin: 0 10px; // 10px слева + 10px справа = 20px между карточками
+    transition: transform 0.3s ease;
+  }
+
+  .swiper-slide-active {
+    transform: scale(1.08);
+  }
+
+  .swiper-pagination {
+    margin-top: 20px;
+  }
+
+  .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background-color: #dfe5ee;
+    border-radius: 50%;
+    opacity: 1;
+    transition: transform 0.25s ease;
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: #0d6efd;
+    transform: scale(1.3);
+  }
+}
+
+.card {
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #98c1d9;
+  width: 100%;
+  height: 206px;
+  padding: 24px;
+  box-shadow: none;
+  transition: transform 0.3s ease;
+}
+
+.text {
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 33px;
+  margin-bottom: 8px;
+  font-family: Montserrat;
+  color: #293241;
+  text-align: start;
+}
+
+.stars {
+  color: #ffc107;
+  font-size: 20px;
+  margin-bottom: 12px;
+  text-align: start;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  width: 53px;
+  height: 53px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.name {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  font-family: Montserrat;
+}
+
+.date {
+  font-size: 16px;
+  line-height: 20px;
+  color: #293241;
+  font-family: Montserrat;
+  text-align: start;
+}
