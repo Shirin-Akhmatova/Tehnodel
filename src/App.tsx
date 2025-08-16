@@ -8,6 +8,7 @@ import Services from "./components/Services/Services";
 import AboutUs from "./components/aboutUs/AboutUs";
 import WorkTeam from "./components/WorkTeam/WorkTeam";
 import OurTeam from "./components/OurTeam/OurTeam";
+import Advantages from "./components/advantages/Advantages";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <WorkTeam />
       <OurTeam />
       <ReviewsCarousel />
+      <Advantages />
       <Map />
       <Footer />
     </>
