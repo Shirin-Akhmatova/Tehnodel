@@ -53,7 +53,7 @@ const reviews: Review[] = [
 
 const ReviewsCarousel: React.FC = () => {
   return (
-    <div className={styles.carouselWrapper}>
+    <div id="reviews" className={styles.carouselWrapper}>
       <h2>Что говорят наши клиенты</h2>
       <Swiper
         modules={[Pagination, Mousewheel]}
