@@ -1,17 +1,17 @@
 .hero {
-  padding: 88px 0 180px 0;
+  padding: 175px 0 180px 0;
 }
 
 .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 40px;
 }
 
 .left {
+  margin-left: 100px;
   flex: 1;
-  max-width: 100%;
+  width: 100%;
 
   h1 {
     font-size: 64px;
@@ -35,7 +35,7 @@
   display: grid;
   max-width: 625.5px;
   grid-template-columns: repeat(2, auto);
-  gap: 12px 40px;
+  gap: 15px 10px;
   margin-bottom: 30px;
 }
 
