@@ -18,6 +18,7 @@ function App() {
       <AboutUs />      
       <WorkTeam />
       <Advantages />
+      <ReviewsCarousel />   
       <Map />
       <Footer />
     </>
