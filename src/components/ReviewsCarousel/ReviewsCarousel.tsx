@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Mousewheel } from "swiper/modules";
+import { Mousewheel } from "swiper/modules";
 
 import "swiper/css";
-import "swiper/css/pagination";
 import styles from "./ReviewsCarousel.module.scss";
 import Avatar from "../../assets/img/47432989-1C5A-4988-8A2F-1F7864A21F01 1.svg";
 
@@ -49,42 +48,79 @@ const reviews: Review[] = [
     rating: 5,
     avatar: Avatar,
   },
+  {
+    id: 5,
+    name: "Muhammad Minhas",
+    date: "2025-02-02",
+    text: "Very quick response and friendly service Recommended",
+    rating: 5,
+    avatar: Avatar,
+  },
 ];
 
 const ReviewsCarousel: React.FC = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
   return (
     <div id="reviews" className={styles.carouselWrapper}>
-      <h2>Что говорят наши клиенты</h2>
+      <div className="container">
+        <h2>Что говорят наши клиенты</h2>
+      </div>
+
       <Swiper
-        modules={[Pagination, Mousewheel]}
+        modules={[Mousewheel]}
         slidesPerView={3}
+        spaceBetween={-140}
         centeredSlides={true}
-        spaceBetween={20}
         loop={true}
-        pagination={{ clickable: true }}
         mousewheel={{ forceToAxis: true }}
+        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
         className={styles.customSwiper}
       >
-        {reviews.map((review) => (
-          <SwiperSlide key={review.id}>
-            <div className={styles.card}>
-              <p className={styles.text}>{review.text}</p>
-              <div className={styles.stars}>{"★".repeat(review.rating)}</div>
-              <div className={styles.userInfo}>
-                <img
-                  src={review.avatar}
-                  alt={review.name}
-                  className={styles.avatar}
-                />
-                <div>
-                  <div className={styles.name}>{review.name}</div>
-                  <div className={styles.date}>{review.date}</div>
+        {reviews.map((review, index) => {
+          let diff = index - activeIndex;
+          if (diff < -Math.floor(reviews.length / 2)) diff += reviews.length;
+          if (diff > Math.floor(reviews.length / 2)) diff -= reviews.length;
+
+          let scale = 0.8;
+          if (diff === 0) scale = 1.2;
+          else if (Math.abs(diff) === 1) scale = 1;
+
+          return (
+            <SwiperSlide key={review.id}>
+              <div
+                className={styles.card}
+                style={{ transform: `scale(${scale})`, zIndex: scale * 10 }}
+              >
+                <p className={styles.text}>{review.text}</p>
+                <div className={styles.stars}>{"★".repeat(review.rating)}</div>
+                <div className={styles.userInfo}>
+                  <img
+                    src={review.avatar}
+                    alt={review.name}
+                    className={styles.avatar}
+                  />
+                  <div>
+                    <div className={styles.name}>{review.name}</div>
+                    <div className={styles.date}>{review.date}</div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </SwiperSlide>
-        ))}
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
+
+      <div className={styles.pagination}>
+        {[0, 1, 2].map((i) => (
+          <span
+            key={i}
+            className={`${styles.bullet} ${
+              activeIndex % 3 === i ? styles.active : ""
+            }`}
+          />
+        ))}
+      </div>
     </div>
   );
 };
