@@ -1,0 +1,44 @@
+.Header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #fff;
+  z-index: 1000;
+  padding-block: 1rem;
+  box-shadow: 0px 4px 9.5px 0px #0000001a;
+
+  .content {
+    display: flex;
+    justify-content: space-between;
+
+    img {
+      width: 200px;
+      height: 40px;
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+
+      nav {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+
+        a {
+          font-size: 1rem;
+          font-weight: 400;
+          color: #6c6c6c;
+          cursor: pointer;
+          transition: 1s ease;
+        }
+
+        .active {
+          color: #053f79;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
