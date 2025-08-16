@@ -6,8 +6,9 @@ import Map from "./components/Map/Map";
 import ReviewsCarousel from "./components/ReviewsCarousel/ReviewsCarousel";
 import Services from "./components/Services/Services";
 import AboutUs from "./components/aboutUs/AboutUs";
-import Advantages from "./components/advantages/Advantages";
 import WorkTeam from "./components/WorkTeam/WorkTeam";
+import OurTeam from "./components/OurTeam/OurTeam";
+import Advantages from "./components/advantages/Advantages";
 
 function App() {
   return (
@@ -15,10 +16,11 @@ function App() {
       <Header />
       <Hero />
       <Services />
-      <AboutUs />      
+      <AboutUs />
       <WorkTeam />
+      <OurTeam />
+      <ReviewsCarousel />
       <Advantages />
-      <ReviewsCarousel />   
       <Map />
       <Footer />
     </>

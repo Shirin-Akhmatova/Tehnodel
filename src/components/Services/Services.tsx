@@ -61,21 +61,23 @@ const Services = () => {
 
   return (
     <div id="services" className={style.services}>
-      <div className={style.content}>
-        <div className={style.title}>
-          <h1>
-            Занимаемся ремонтом <br /> крупно-бытовой техники
-          </h1>
-          <span>Выберите, что вы хотите отремонтировать:</span>
-        </div>
-        <div className={style.services_list}>
-          {services.map((service) => (
-            <div key={service.id} className={style.service_item}>
-              <img src={service.image} alt={service.title} />
-              <h3>{service.title}</h3>
-              <p>{service.description}</p>
-            </div>
-          ))}
+      <div className="container">
+        <div className={style.content}>
+          <div className={style.title}>
+            <h1>
+              Занимаемся ремонтом <br /> крупно-бытовой техники
+            </h1>
+            <span>Выберите, что вы хотите отремонтировать:</span>
+          </div>
+          <div className={style.services_list}>
+            {services.map((service) => (
+              <div key={service.id} className={style.service_item}>
+                <img src={service.image} alt={service.title} />
+                <h3>{service.title}</h3>
+                <p>{service.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
