@@ -1,0 +1,30 @@
+.aboutUs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 180px;
+}
+
+.left {
+  text-align: start;
+
+  sub {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+    margin-bottom: 9px;
+  }
+  h2 {
+    color: #293241;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 60px;
+    margin-bottom: 41px;
+  }
+  p {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+    margin-bottom: 70px;
+  }
+}
