@@ -6,6 +6,7 @@ import Map from "./components/Map/Map";
 import ReviewsCarousel from "./components/ReviewsCarousel/ReviewsCarousel";
 import Services from "./components/Services/Services";
 import AboutUs from "./components/aboutUs/AboutUs";
+import Advantages from "./components/advantages/Advantages";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Hero />
       <Services />
       <AboutUs />
+      <Advantages />
       <ReviewsCarousel />
       <Map />
       <Footer />

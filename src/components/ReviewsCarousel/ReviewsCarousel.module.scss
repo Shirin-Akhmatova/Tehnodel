@@ -22,30 +22,20 @@
     width: 400px;
     display: flex;
     justify-content: center;
-    margin: 0 10px; // 10px слева + 10px справа = 20px между карточками
     transition: transform 0.3s ease;
-  }
+    transform: scale(0.8);
+    z-index: 1;
 
-  .swiper-slide-active {
-    transform: scale(1.08);
-  }
+    &.swiper-slide-active {
+      transform: scale(1.2);
+      z-index: 3;
+    }
 
-  .swiper-pagination {
-    margin-top: 20px;
-  }
-
-  .swiper-pagination-bullet {
-    width: 10px;
-    height: 10px;
-    background-color: #dfe5ee;
-    border-radius: 50%;
-    opacity: 1;
-    transition: transform 0.25s ease;
-  }
-
-  .swiper-pagination-bullet-active {
-    background-color: #0d6efd;
-    transform: scale(1.3);
+    &.swiper-slide-prev,
+    &.swiper-slide-next {
+      transform: scale(1);
+      z-index: 2;
+    }
   }
 }
 
@@ -53,11 +43,11 @@
   background: #fff;
   border-radius: 10px;
   border: 1px solid #98c1d9;
+  max-width: 400px;
   width: 100%;
   height: 206px;
   padding: 24px;
-  box-shadow: none;
-  transition: transform 0.3s ease;
+  box-shadow: 0 4px 8px #98c1d926;
 }
 
 .text {
@@ -103,4 +93,24 @@
   color: #293241;
   font-family: Montserrat;
   text-align: start;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 55px;
+}
+
+.bullet {
+  width: 16px;
+  height: 12px;
+  border-radius: 6px;
+  background-color: #98c1d9;
+  transition: all 0.3s ease;
+}
+
+.bullet.active {
+  width: 30px;
+  background-color: #053f79;
 }
