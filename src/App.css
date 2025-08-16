@@ -9,3 +9,12 @@ body {
   overflow-x: hidden;
   font-family: Montserrat;
 }
+html {
+  scroll-behavior: smooth;
+}
+button {
+  border: none;
+}
+a {
+  text-decoration: none;
+}
