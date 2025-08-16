@@ -1,0 +1,71 @@
+.OurTeam {
+  padding-block: 7rem;
+
+  .content {
+    h1 {
+      font-size: 3rem;
+      color: #293241;
+    }
+
+    .ourteam {
+      margin-top: 2rem;
+
+      .team {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        .profil {
+          width: 300px;
+          height: 360px;
+          border-radius: 10px;
+          box-shadow: 4px 4px 6.8px 0px #0000001a;
+        }
+
+        .info {
+          h3 {
+            font-size: 2rem;
+            color: #293241;
+          }
+          p {
+            font-size: 1.3rem;
+            margin-block: 0.2rem 1.5rem;
+          }
+          h4 {
+            font-size: 1.5rem;
+            color: #053f79;
+          }
+          .stars {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            img {
+              width: 32px;
+              height: 32px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+:global(.swiper-pagination) {
+  position: relative;
+  margin-top: 3rem;
+  text-align: center;
+}
+:global(.swiper-pagination-bullet) {
+  background: #98c1d9;
+  transition: 0.4s;
+  width: 16px;
+  height: 12px;
+  opacity: 0.7;
+}
+
+:global(.swiper-pagination-bullet-active) {
+  background: #053f79;
+  border-radius: 12px;
+  width: 2rem;
+  opacity: 1;
+}
