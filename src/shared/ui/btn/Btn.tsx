@@ -1,6 +1,15 @@
 import style from "./Btn.module.scss";
-const Btn = () => {
-  return <button className={style.Btn}>Вызвать мастера</button>;
+
+interface BtnProps {
+  paddingInline: string;
+  paddingBlock: string;
+}
+const Btn = ({ paddingInline, paddingBlock }: BtnProps) => {
+  return (
+    <button className={style.Btn} style={{ paddingInline, paddingBlock }}>
+      Вызвать мастера
+    </button>
+  );
 };
 
 export default Btn;

@@ -1,17 +1,25 @@
 import Btn from "../../shared/ui/btn/Btn";
 import Logo from "../../assets/icons/image 15.svg";
 import style from "./Header.module.scss";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+
+interface INav {
+  id: string;
+  label: string;
+}
 
 function Header() {
   const [active, setActive] = useState<string>("");
 
-  const nav = [
-    { id: "services", label: "Услуги" },
-    { id: "about", label: "О нас" },
-    { id: "contacts", label: "Контакты" },
-    { id: "reviews", label: "Отзывы" },
-  ];
+  const nav: INav[] = useMemo(
+    () => [
+      { id: "services", label: "Услуги" },
+      { id: "about", label: "О нас" },
+      { id: "contacts", label: "Контакты" },
+      { id: "reviews", label: "Отзывы" },
+    ],
+    []
+  );
 
   useEffect(() => {
     const onScroll = () => {
@@ -26,7 +34,7 @@ function Header() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-  
+
   return (
     <div className={style.Header}>
       <div className="container">
@@ -44,7 +52,7 @@ function Header() {
                 </a>
               ))}
             </nav>
-            <Btn />
+            <Btn paddingBlock="0.9rem" paddingInline="2rem" />
           </div>
         </div>
       </div>
