@@ -16,7 +16,7 @@ function App() {
       <Services />
       <AboutUs />
       <Advantages />
-      <ReviewsCarousel />
+      <ReviewsCarousel />   
       <Map />
       <Footer />
     </>
