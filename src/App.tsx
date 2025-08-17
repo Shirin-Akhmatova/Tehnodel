@@ -9,6 +9,7 @@ import AboutUs from "./components/aboutUs/AboutUs";
 import WorkTeam from "./components/WorkTeam/WorkTeam";
 import OurTeam from "./components/OurTeam/OurTeam";
 import Advantages from "./components/advantages/Advantages";
+import StepsSection from "./components/StepsSection/StepsSection";
 
 function App() {
   return (
@@ -19,8 +20,9 @@ function App() {
       <AboutUs />
       <WorkTeam />
       <OurTeam />
-      <ReviewsCarousel />
       <Advantages />
+      <StepsSection />
+      <ReviewsCarousel />
       <Map />
       <Footer />
     </>
