@@ -1,6 +1,5 @@
 import styles from "./AboutUs.module.scss";
 import Imgs from "../../assets/img/Group 1000003689.svg";
-import Btn from "../../shared/ui/btn/Btn";
 
 function AboutUs() {
   return (
@@ -18,9 +17,9 @@ function AboutUs() {
             работы и стремимся <br /> обеспечить лучший сервис для наших <br />
             клиентов. С нами ваша техника будет работать <br /> как новая
           </p>
-          <Btn />
+          <button className={styles.button}>Вызвать мастера</button>
         </div>
-        <img src={Imgs} alt="img" />
+        <img src={Imgs} alt="workers" className={styles.workers} />
       </div>
     </section>
   );

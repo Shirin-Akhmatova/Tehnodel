@@ -5,6 +5,10 @@
   position: relative;
   overflow: visible;
 
+  @media (max-width: 375px) {
+    margin-bottom: 140px;
+  }
+
   h2 {
     text-align: start;
     color: #293241;
@@ -12,6 +16,11 @@
     font-size: 48px;
     font-family: Montserrat;
     margin-bottom: 35px;
+
+    @media (max-width: 375px) {
+      font-size: 32px;
+      line-height: 39px;
+    }
   }
 }
 
@@ -76,6 +85,10 @@
   justify-content: center;
   gap: 8px;
   margin-top: 55px;
+
+  @media (max-width: 375px) {
+    display: none;
+  }
 }
 
 .bullet {
