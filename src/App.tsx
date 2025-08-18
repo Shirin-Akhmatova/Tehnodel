@@ -10,6 +10,7 @@ import WorkTeam from "./components/WorkTeam/WorkTeam";
 import OurTeam from "./components/OurTeam/OurTeam";
 import Advantages from "./components/advantages/Advantages";
 import StepsSection from "./components/StepsSection/StepsSection";
+import LogoCarousel from "./components/LogoCarousel/LogoCarousel";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Header />
       <Hero />
       <Services />
+      <LogoCarousel />
       <AboutUs />
       <WorkTeam />
       <OurTeam />
