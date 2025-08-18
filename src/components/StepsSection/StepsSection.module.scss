@@ -1,12 +1,22 @@
 .stepsSection {
   margin-bottom: 180px;
 
+  @media (max-width: 375px) {
+    margin-bottom: 140px;
+  }
+
   .title {
     font-size: 48px;
     font-weight: 700;
     margin-bottom: 95px;
     line-height: 60px;
     color: #293241;
+
+    @media (max-width: 375px) {
+      font-size: 32px;
+      line-height: 39px;
+      margin-bottom: 60px;
+    }
   }
 }
 
@@ -14,6 +24,10 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 50px;
+
+  @media (max-width: 375px) {
+    display: none;
+  }
 }
 
 .cardWrapper {
@@ -29,12 +43,25 @@
   height: 293px;
   overflow: hidden;
 
+  @media (max-width: 375px) {
+    padding: 60px 6px 32px 11px;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid #98c1d9;
+  }
+
   h4 {
     font-size: 32px;
     font-weight: 600;
     line-height: 39px;
     color: #293241;
     margin-bottom: 20px;
+
+    @media (max-width: 375px) {
+      font-size: 18px;
+      line-height: 20px;
+      margin-bottom: 11px;
+    }
   }
 
   p {
@@ -42,6 +69,12 @@
     color: #acacac;
     line-height: 30px;
     font-weight: 500;
+
+    @media (max-width: 375px) {
+      font-size: 14px;
+      line-height: 15px;
+      font-weight: 400;
+    }
   }
 }
 
@@ -62,4 +95,48 @@
   font-weight: 600;
   line-height: 44px;
   z-index: 3;
+
+  @media (max-width: 375px) {
+    top: -25px;
+    left: -15px;
+    width: 46px;
+    height: 46px;
+    border-radius: 3px;
+    font-size: 20px;
+    line-height: 30px;
+  }
+}
+
+.slider {
+  display: none;
+
+  @media (max-width: 375px) {
+    display: block;
+    .swiper-pagination-bullet-active {
+      background: #053f79;
+    }
+    .swiper-slide {
+      overflow: visible;
+    }
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.bullet {
+  width: 16px;
+  height: 12px;
+  border-radius: 6px;
+  background-color: #98c1d9;
+  transition: all 0.3s ease;
+}
+
+.bullet.active {
+  width: 30px;
+  background-color: #053f79;
 }

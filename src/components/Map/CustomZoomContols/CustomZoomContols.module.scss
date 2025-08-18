@@ -7,6 +7,10 @@
   flex-direction: column;
   align-items: center;
   z-index: 1000;
+
+  @media (max-width: 375px) {
+    display: none;
+  }
 }
 
 .zoom_group {
@@ -29,16 +33,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.fullscreen_button {
-  width: 36px;
-  height: 36px;
-  background: #fff;
-  border-radius: 50px;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
 }
 
 .zoom_button img {

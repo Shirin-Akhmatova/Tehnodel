@@ -10,7 +10,7 @@ interface Review {
   id: number;
   name: string;
   date: string;
-  text: string;   
+  text: string;
   rating: number;
   avatar: string;
 }
