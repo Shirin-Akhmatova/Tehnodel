@@ -1,0 +1,45 @@
+.steps {
+  padding-bottom: 7rem;
+  .content {
+    h1 {
+      font-size: 3rem;
+      color: #293241;
+    }
+    .stepsList {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3.5rem;
+      margin-top: 5rem;
+      .step {
+        position: relative;
+        width: 100%;
+        border-radius: 12px;
+        box-shadow: 5px 4px 14.9px 0px #95bbf3;
+        padding: 1rem;
+        .stepNumber {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 85px;
+          height: 85px;
+          border-radius: 5px;
+          font-size: 2.5rem;
+          color: white;
+          background: #053f79;
+          position: absolute;
+          left: -2rem;
+          top: -2rem;
+        }
+        h3 {
+          font-size: 2rem;
+          color: #293241;
+          margin-block: 3rem 1rem;
+        }
+        p {
+          font-size: 1.2rem;
+          color: #acacac;
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Mousewheel } from "swiper/modules";
+import { Mousewheel, Pagination } from "swiper/modules";
 
 import "swiper/css";
 import styles from "./ReviewsCarousel.module.scss";
@@ -10,7 +10,7 @@ interface Review {
   id: number;
   name: string;
   date: string;
-  text: string;   
+  text: string;
   rating: number;
   avatar: string;
 }
@@ -59,7 +59,7 @@ const reviews: Review[] = [
 ];
 
 const ReviewsCarousel: React.FC = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState<number>(0);
 
   return (
     <div id="reviews" className={styles.carouselWrapper}>
@@ -68,10 +68,9 @@ const ReviewsCarousel: React.FC = () => {
       </div>
 
       <Swiper
-        modules={[Mousewheel]}
+        modules={[Pagination, Mousewheel]}
         slidesPerView={3}
-        spaceBetween={-140}
-        centeredSlides={true}
+        spaceBetween={-160}
         loop={true}
         mousewheel={{ forceToAxis: true }}
         onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
