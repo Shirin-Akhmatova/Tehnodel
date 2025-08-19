@@ -69,3 +69,52 @@
   width: 2rem;
   opacity: 1;
 }
+
+@media (max-width: 375px) {
+  .OurTeam {
+    padding-block: 3rem;
+    .content {
+      h1 {
+        font-size: 2rem;
+      }
+      .ourteam {
+        .team {
+          .profil {
+            width: 180px;
+            height: 210px;
+          }
+          .info {
+            h3 {
+              font-size: 1.2rem;
+            }
+            p {
+              font-size: 0.9rem;
+              margin-block: 0.2rem 0.8rem;
+            }
+            h4 {
+              font-size: 1rem;
+            }
+            .stars {
+              img {
+                width: 20px;
+                height: 20px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  :global(.swiper-pagination) {
+    margin-top: 2rem;
+  }
+  :global(.swiper-pagination-bullet) {
+    width: 10px;
+    height: 10px;
+  }
+
+  :global(.swiper-pagination-bullet-active) {
+    width: 1.5rem;
+  }
+}

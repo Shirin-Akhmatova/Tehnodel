@@ -57,6 +57,8 @@ const OurTeam = () => {
     []
   );
 
+  const width = window.innerWidth;
+
   return (
     <div id="services" className={style.OurTeam}>
       <div className="container">
@@ -65,7 +67,11 @@ const OurTeam = () => {
           <Swiper
             modules={[Pagination]}
             spaceBetween={30}
-            slidesPerView={2}
+            breakpoints={{
+              0: { slidesPerView: 1 },
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 2.4 },
+            }}
             pagination={{ clickable: true }}
             className={style.ourteam}
           >
