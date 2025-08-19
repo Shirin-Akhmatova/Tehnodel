@@ -2,13 +2,17 @@ import styles from "./Hero.module.scss";
 import MasterImg from "../../assets/img/Group 1000003691.svg";
 import Bg from "../../assets/img/Group 492.svg";
 import CheckIcon from "../../assets/icons/Vector.svg";
+import BgAdaptive from "../../assets/img/Ellipse 1.svg";
+import BgAdaptive2 from "../../assets/img/Ellipse 2.svg";
 
 function Hero() {
   return (
     <section className={styles.hero}>
       <div className={styles.container}>
         <div className={styles.left}>
-          <h1>С нами техника в надежных руках</h1>
+          <h1>
+            С нами техника в <br /> надежных руках
+          </h1>
           <p>
             Срочный ремонт бытовой техники в Москве <br /> и Московской области!
           </p>
@@ -37,6 +41,16 @@ function Hero() {
 
         <div className={styles.right}>
           <img src={Bg} alt="Bg" className={styles.bg} />
+          <img
+            src={BgAdaptive}
+            alt="bg_adaptive"
+            className={styles.bg_adaptive}
+          />
+          <img
+            src={BgAdaptive2}
+            alt="bg_adaptive"
+            className={styles.bg_adaptive2}
+          />
           <img src={MasterImg} alt="Мастер" className={styles.master} />
         </div>
       </div>
