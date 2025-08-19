@@ -8,7 +8,7 @@ import CustomZoomControls from "./CustomZoomContols/CustomZoomControls";
 
 const Map: React.FC = () => {
   return (
-    <div className={styles.map_container}>
+    <div id="contacts" className={styles.map_container}>
       <MapContainer
         center={[42.87, 74.625]}
         zoom={13}

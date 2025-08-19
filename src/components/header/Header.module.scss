@@ -10,12 +10,17 @@
   .content {
     display: flex;
     justify-content: space-between;
-
+    align-items: center;
     img {
       width: 200px;
       height: 40px;
     }
-
+    .hamburger {
+      display: none;
+    }
+    .mobileMenu {
+      display: none;
+    }
     .menu {
       display: flex;
       align-items: center;
@@ -38,6 +43,86 @@
           color: #053f79;
           font-weight: 600;
         }
+      }
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .Header {
+    padding-block: 0.5rem;
+    .content {
+      position: relative;
+      img {
+        width: 100px;
+        height: 20px;
+      }
+      .mobileMenu {
+        display: block;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: 0.4s ease-in-out;
+        z-index: 1000;
+        padding: 2rem;
+        padding-right: 8rem;
+        background: white;
+        transform: translateX(150%);
+        nav {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: center;
+          gap: 3rem;
+          a {
+            font-size: 1rem;
+            color: #6c6c6c;
+          }
+          .active {
+            color: #053f79;
+            font-weight: 600;
+          }
+        }
+      }
+      .hamburger {
+        display: flex;
+        cursor: pointer;
+        z-index: 1001;
+        input {
+          display: none;
+        }
+
+        svg {
+          height: 3em;
+          transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .line {
+          fill: none;
+          stroke: rgb(0, 0, 0);
+          stroke-linecap: round;
+          stroke-linejoin: round;
+          stroke-width: 3;
+          transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+            stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .line_top_bottom {
+          stroke-dasharray: 12 63;
+        }
+
+        input:checked + svg {
+          transform: rotate(-45deg);
+        }
+
+        input:checked + svg .line_top_bottom {
+          stroke-dasharray: 20 300;
+          stroke-dashoffset: -32.42;
+        }
+      }
+      .menu {
+        display: none;
       }
     }
   }
