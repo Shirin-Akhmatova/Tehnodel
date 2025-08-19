@@ -3,7 +3,7 @@ import Imgs from "../../assets/img/Group 1000003689.svg";
 
 function AboutUs() {
   return (
-    <section className="container">
+    <section id="about" className="container">
       <div className={styles.aboutUs}>
         <div className={styles.left}>
           <sub>О нас</sub>
