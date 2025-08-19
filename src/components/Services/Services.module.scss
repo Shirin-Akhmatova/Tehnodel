@@ -43,3 +43,24 @@
     }
   }
 }
+
+@media (max-width: 375px) {
+  .services {
+    .content {
+      .title {
+        h1 {
+          font-size: 2rem;
+        }
+      }
+      .services_list {
+        gap: 1.5rem;
+        .service_item {
+          width: 280px;
+          img {
+            height: 250px;
+          }
+        }
+      }
+    }
+  }
+}
