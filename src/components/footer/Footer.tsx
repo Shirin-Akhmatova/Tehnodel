@@ -2,8 +2,6 @@ import styles from "./Footer.module.scss";
 import Logo from "../../assets/icons/image 15.svg";
 import Whatsapp from "../../assets/icons/Social Icons (1).svg";
 import Telegram from "../../assets/icons/Social Icons.svg";
-import Facebook from "../../assets/icons/Social Icons (2).svg";
-import Instagram from "../../assets/icons/Social Icons (3).svg";
 
 function Footer() {
   return (
@@ -56,12 +54,6 @@ function Footer() {
           <p>Технодел © 2025</p>
           <div className={styles.social_icons}>
             <img src={Whatsapp} alt="WhatsApp" className={styles.social_icon} />
-            <img src={Facebook} alt="Facebook" className={styles.social_icon} />
-            <img
-              src={Instagram}
-              alt="Instagram"
-              className={styles.social_icon}
-            />
             <img src={Telegram} alt="Telegram" className={styles.social_icon} />
           </div>
         </div>
