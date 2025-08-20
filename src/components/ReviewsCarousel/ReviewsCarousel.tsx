@@ -69,8 +69,18 @@ const ReviewsCarousel: React.FC = () => {
 
       <Swiper
         modules={[Pagination, Mousewheel]}
-        slidesPerView={3}
-        spaceBetween={-160}
+        breakpoints={{
+          0: {
+            slidesPerView: 1,
+          },
+          768: {
+            slidesPerView: 2,
+          },
+          1024: {
+            slidesPerView: 3,
+          },
+        }}
+        centeredSlides={true}
         loop={true}
         mousewheel={{ forceToAxis: true }}
         onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
@@ -81,15 +91,17 @@ const ReviewsCarousel: React.FC = () => {
           if (diff < -Math.floor(reviews.length / 2)) diff += reviews.length;
           if (diff > Math.floor(reviews.length / 2)) diff -= reviews.length;
 
-          let scale = 0.8;
-          if (diff === 0) scale = 1.2;
-          else if (Math.abs(diff) === 1) scale = 1;
+          let scale = diff === 0 ? 1.1 : 1;
 
           return (
             <SwiperSlide key={review.id}>
               <div
                 className={styles.card}
-                style={{ transform: `scale(${scale})`, zIndex: scale * 10 }}
+                style={{
+                  transform: `scale(${scale})`,
+                  transition: "transform 0.4s ease",
+                  zIndex: diff === 0 ? 10 : 1,
+                }}
               >
                 <p className={styles.text}>{review.text}</p>
                 <div className={styles.stars}>{"★".repeat(review.rating)}</div>
