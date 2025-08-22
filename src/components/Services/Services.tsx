@@ -18,27 +18,7 @@ const Services = () => {
     const fetchServices = async () => {
       try {
         const res = await axios.get("/api/product/");
-
-        console.log("📦 API ответ:", res.data);
-
-        if (!Array.isArray(res.data)) {
-          throw new Error("Неверный формат ответа от API");
-        }
-
-        const normalized: IProduct[] = res.data.map((item: any) => ({
-          id: item.id ?? Math.random(),
-          name: item.name ?? "Без названия",
-          descriptions: item.descriptions || "Описание отсутствует",
-          image: item.image
-            ? item.image.startsWith("http")
-              ? item.image
-              : `http://5.101.1.198${item.image.startsWith("/") ? "" : "/"}${
-                  item.image
-                }`
-            : "https://via.placeholder.com/370x300?text=Нет+фото",
-        }));
-
-        setServices(normalized);
+        setServices(res.data);
       } catch (err: any) {
         console.error("❌ Ошибка API:", err);
         setError("Не удалось загрузить данные. Попробуйте позже.");
