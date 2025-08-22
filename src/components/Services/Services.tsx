@@ -6,23 +6,29 @@ interface IProduct {
   id: number;
   name: string;
   image: string;
-  description: string;
+  descriptions: string | null;
 }
 
 const Services = () => {
   const [services, setServices] = useState<IProduct[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchServices = async () => {
       try {
         const res = await axios.get("/api/product/");
 
-        console.log("API ответ:", res.data);
+        console.log("📦 API ответ:", res.data);
 
-        const normalized = res.data.map((item: any) => ({
-          id: item.id,
-          name: item.name,
+        if (!Array.isArray(res.data)) {
+          throw new Error("Неверный формат ответа от API");
+        }
+
+        const normalized: IProduct[] = res.data.map((item: any) => ({
+          id: item.id ?? Math.random(),
+          name: item.name ?? "Без названия",
+          descriptions: item.descriptions || "Описание отсутствует",
           image: item.image
             ? item.image.startsWith("http")
               ? item.image
@@ -33,8 +39,9 @@ const Services = () => {
         }));
 
         setServices(normalized);
-      } catch (error) {
-        console.error("Ошибка API:", error);
+      } catch (err: any) {
+        console.error("❌ Ошибка API:", err);
+        setError("Не удалось загрузить данные. Попробуйте позже.");
       } finally {
         setLoading(false);
       }
@@ -44,7 +51,15 @@ const Services = () => {
   }, []);
 
   if (loading) {
-    return <div className={style.services}>Загрузка...</div>;
+    return <div className={style.services_loading}>Загрузка...</div>;
+  }
+
+  if (error) {
+    return <div className={style.services_error}>{error}</div>;
+  }
+
+  if (services.length === 0) {
+    return <div className={style.services_empty}>Нет доступных услуг</div>;
   }
 
   return (
@@ -60,9 +75,16 @@ const Services = () => {
           <div className={style.services_list}>
             {services.map((service) => (
               <div key={service.id} className={style.service_item}>
-                <img src={service.image} alt={service.name} />
+                <img
+                  src={service.image}
+                  alt={service.name}
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src =
+                      "https://via.placeholder.com/370x300?text=Нет+фото";
+                  }}
+                />
                 <h3>{service.name}</h3>
-                <p>{service.description}</p>
+                <p>{service.descriptions}</p>
               </div>
             ))}
           </div>
