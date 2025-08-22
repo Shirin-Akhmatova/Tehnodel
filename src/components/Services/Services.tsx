@@ -5,8 +5,8 @@ import style from "./Services.module.scss";
 interface IProduct {
   id: number;
   name: string;
-  description: string;
   image: string;
+  description: string;
 }
 
 const Services = () => {
@@ -16,21 +16,20 @@ const Services = () => {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const res = await axios.get("http://5.101.1.198/api/product/", {
-          headers: { Accept: "*/*" },
-        });
+        const res = await axios.get("/api/product/");
 
         console.log("API ответ:", res.data);
 
-        const data = Array.isArray(res.data)
-          ? res.data
-          : res.data.results || [];
-
-        const normalized = data.map((item: IProduct) => ({
-          ...item,
-          image: item.image?.startsWith("http")
-            ? item.image
-            : `http://5.101.1.198/${item.image.replace(/^\/+/, "")}`,
+        const normalized = res.data.map((item: any) => ({
+          id: item.id,
+          name: item.name,
+          image: item.image
+            ? item.image.startsWith("http")
+              ? item.image
+              : `http://5.101.1.198${item.image.startsWith("/") ? "" : "/"}${
+                  item.image
+                }`
+            : "https://via.placeholder.com/370x300?text=Нет+фото",
         }));
 
         setServices(normalized);
