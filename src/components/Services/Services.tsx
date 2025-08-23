@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
 import style from "./Services.module.scss";
 
 interface IProduct {
@@ -9,33 +7,15 @@ interface IProduct {
   descriptions: string | null;
 }
 
-const Services = () => {
-  const [services, setServices] = useState<IProduct[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchServices = async () => {
-      try {
-        const res = await axios.get("/api/product/");
-        setServices(res.data);
-      } catch (err: any) {
-        console.error("❌ Ошибка API:", err);
-        setError("Не удалось загрузить данные. Попробуйте позже.");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchServices();
-  }, []);
-
+const Services = ({
+  services,
+  loading,
+}: {
+  services: IProduct[];
+  loading: boolean;
+}) => {
   if (loading) {
     return <div className={style.services_loading}>Загрузка...</div>;
-  }
-
-  if (error) {
-    return <div className={style.services_error}>{error}</div>;
   }
 
   if (services.length === 0) {

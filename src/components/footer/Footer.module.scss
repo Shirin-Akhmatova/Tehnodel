@@ -1,7 +1,7 @@
 .footer {
   margin-top: 193px;
   background: #293241;
-  height: 522px;
+  height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -10,7 +10,7 @@
   padding: 34px 0 0 0;
 
   @media (max-width: 375px) {
-    height: 524px;
+    height: 100%;
     padding: 0;
   }
 }
@@ -155,10 +155,6 @@
     .phone_call {
       display: flex;
       flex-direction: column;
-
-      @media (max-width: 375px) {
-        display: none;
-      }
     }
   }
 }
@@ -173,7 +169,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0 0 0;
+  padding: 20px 0 20px 0;
   width: 100%;
   margin-right: 976px;
 

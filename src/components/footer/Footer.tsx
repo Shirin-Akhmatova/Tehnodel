@@ -3,7 +3,14 @@ import Logo from "../../assets/icons/image 15.svg";
 import Whatsapp from "../../assets/icons/Social Icons (1).svg";
 import Telegram from "../../assets/icons/Social Icons.svg";
 
-function Footer() {
+interface IProduct {
+  id: number;
+  name: string;
+  image: string;
+  descriptions: string | null;
+}
+
+function Footer({ services }: { services: IProduct[] }) {
   return (
     <footer className={styles.footer}>
       <div className="container">
@@ -13,17 +20,13 @@ function Footer() {
             <div className={styles.content}>
               <h3>Услуги</h3>
               <ul>
-                <li>Ремонт холодильников</li>
-                <li>
-                  Ремонт промышленных <br /> холодильников
-                </li>
-                <li>Ремонт стиральных машин</li>
-                <li>Ремонт посудомоечных машин</li>
-                <li>Ремонт сушильных машин</li>
-                <li>Ремонт индукционных плит</li>
-                <li>Ремонт духовых шкафов</li>
-                <li>Ремонт винных шкафов</li>
-                <li>Ремонт мелкой бытовой техники</li>
+                {services.length > 0 ? (
+                  services.map((service) => (
+                    <li key={service.id}>{service.name}</li>
+                  ))
+                ) : (
+                  <li>Нет доступных услуг</li>
+                )}
               </ul>
             </div>
             <div className={styles.contacts}>
