@@ -1,17 +1,24 @@
-import { MapContainer, TileLayer } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import L from "leaflet";
 import styles from "./Map.module.scss";
 import Location from "../../assets/icons/gps2 1.svg";
 import Watch from "../../assets/icons/w512h5121390855838watch 1.svg";
 import Phone from "../../assets/icons/phone копия 2.svg";
 import CustomZoomControls from "./CustomZoomContols/CustomZoomControls";
 
+const customIcon = new L.Icon({
+  iconUrl: Location,
+  iconSize: [40, 40],
+  iconAnchor: [20, 40],
+});
+
 const Map: React.FC = () => {
   return (
     <div id="contacts" className={styles.map_container}>
       <MapContainer
-        center={[42.87, 74.625]}
-        zoom={13}
+        center={[55.6895, 37.6645]}
+        zoom={16}
         zoomControl={false}
         attributionControl={false}
         scrollWheelZoom={false}
@@ -19,8 +26,13 @@ const Map: React.FC = () => {
       >
         <TileLayer
           url="https://tile2.maps.2gis.com/tiles?x={x}&y={y}&z={z}"
-          attribution="&copy; OpenStreetMap contributors"
+          attribution="&copy; 2GIS"
         />
+
+        <Marker position={[55.6895, 37.6645]} icon={customIcon}>
+          <Popup>Москва, Нагатинская набережная, д. 10</Popup>
+        </Marker>
+
         <CustomZoomControls />
       </MapContainer>
 

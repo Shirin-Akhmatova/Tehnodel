@@ -1,8 +1,8 @@
 import { useMemo } from "react";
 import Evgeni from "../../assets/img/1755786773.png";
-import Stepan from "../../assets/img/1755788486.png";
+import Stepan from "../../assets/img/1755959519.png";
 import Sergei from "../../assets/img/1755787614.png";
-import Maksim from "../../assets/img/1755788088.png";
+import Maksim from "../../assets/img/1755960359.png";
 import star from "../../assets/icons/star.svg";
 import style from "./OurTeam.module.scss";
 

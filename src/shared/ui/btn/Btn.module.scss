@@ -4,4 +4,9 @@
   height: 600;
   border-radius: 0.5rem;
   padding: 0.9rem 2rem;
+  cursor: pointer;
+
+  &:hover {
+    background: #053e6a;
+  }
 }
