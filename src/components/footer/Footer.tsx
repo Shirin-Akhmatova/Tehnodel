@@ -56,8 +56,20 @@ function Footer({ services }: { services: IProduct[] }) {
         <div className={styles.bottom}>
           <p>Технодел © 2025</p>
           <div className={styles.social_icons}>
-            <img src={Whatsapp} alt="WhatsApp" className={styles.social_icon} />
-            <img src={Telegram} alt="Telegram" className={styles.social_icon} />
+            <a href="https://wa.me" target="_blank" rel="noopener noreferrer">
+              <img
+                src={Whatsapp}
+                alt="WhatsApp"
+                className={styles.social_icon}
+              />
+            </a>
+            <a href="https://t.me" target="_blank" rel="noopener noreferrer">
+              <img
+                src={Telegram}
+                alt="Telegram"
+                className={styles.social_icon}
+              />
+            </a>
           </div>
         </div>
       </div>
