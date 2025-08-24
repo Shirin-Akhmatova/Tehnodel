@@ -56,14 +56,22 @@ function Footer({ services }: { services: IProduct[] }) {
         <div className={styles.bottom}>
           <p>Технодел © 2025</p>
           <div className={styles.social_icons}>
-            <a href="https://wa.me" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://wa.me/79252017596"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img
                 src={Whatsapp}
                 alt="WhatsApp"
                 className={styles.social_icon}
               />
             </a>
-            <a href="https://t.me" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://t.me/+79252017596"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img
                 src={Telegram}
                 alt="Telegram"
