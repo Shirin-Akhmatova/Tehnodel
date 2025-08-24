@@ -2,6 +2,7 @@ import Btn from "../../shared/ui/btn/Btn";
 import Logo from "../../assets/icons/image 15.svg";
 import style from "./Header.module.scss";
 import { useEffect, useMemo, useState } from "react";
+import Modal from "../Modal/Modal";
 
 interface INav {
   id: string;
@@ -11,6 +12,7 @@ interface INav {
 function Header() {
   const [active, setActive] = useState<string>("");
   const [open, setOpen] = useState<boolean>(false);
+  const [openModal, setOpenModal] = useState<boolean>(false);
 
   const nav: INav[] = useMemo(
     () => [
@@ -53,7 +55,11 @@ function Header() {
                 </a>
               ))}
             </nav>
-            <Btn paddingBlock="0.9rem" paddingInline="2rem" />
+            <Btn
+              paddingBlock="0.9rem"
+              paddingInline="2rem"
+              onClick={() => setOpenModal(true)}
+            />
           </div>
           <label className={style.hamburger}>
             <input onClick={() => setOpen(!open)} type="checkbox" />
@@ -83,6 +89,7 @@ function Header() {
           </div>
         </div>
       </div>
+      {openModal && <Modal onClose={() => setOpenModal(false)} />}
     </div>
   );
 }

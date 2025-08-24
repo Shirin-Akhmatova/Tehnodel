@@ -1,0 +1,177 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal {
+  background: #fff;
+  border-radius: 15px;
+  padding: 55px 45px;
+  width: 100%;
+  max-width: 512px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+  font-family: Montserrat;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.modal h2 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 27px;
+  color: #293241;
+}
+
+.modal p {
+  font-weight: 500;
+  text-align: center;
+  font-size: 20px;
+  line-height: 30px;
+  color: #7d7d7d;
+  margin-bottom: 33px;
+}
+
+.close {
+  position: absolute;
+  top: 23px;
+  right: 26px;
+  background: transparent;
+  border: none;
+  width: 33px;
+  height: 33px;
+}
+
+.close img {
+  cursor: pointer;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 35px; // gap только между инпутами
+}
+
+.input {
+  padding: 12px 14px;
+  height: 52px;
+  font-family: Montserrat;
+  background: #fff;
+  border: 1px solid #b0b0b0;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #717171;
+  outline: none;
+}
+
+.input:focus {
+  border-color: #004080;
+  box-shadow: 0 0 0 2px rgba(0, 64, 128, 0.2);
+}
+
+.button {
+  margin-top: 20px;
+  padding: 10px;
+  height: 48px;
+  width: 100%;
+  background: #053f79;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  line-height: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.button:hover {
+  background: #053e6a;
+}
+
+.error {
+  color: #d9534f;
+  font-size: 14px;
+  text-align: start;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.success {
+  color: #28a745;
+  font-size: 14px;
+  text-align: start;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+@media (max-width: 375px) {
+  .modal {
+    max-width: 275px;
+    padding: 30px 24px 24px;
+  }
+
+  .modal h2 {
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 14px;
+  }
+
+  .modal p {
+    font-size: 12px;
+    line-height: 15px;
+    margin-bottom: 17px;
+  }
+
+  .close {
+    top: 12px;
+    right: 13px;
+  }
+
+  .close img {
+    width: 17.77px;
+    height: 17.77px;
+  }
+
+  .inputs {
+    gap: 17.77px;
+  }
+
+  .input {
+    font-size: 10px;
+    border-radius: 4px;
+    height: 28px;
+  }
+
+  .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 16px;
+    font-size: 10px;
+    border-radius: 5px;
+    height: 25px;
+  }
+
+  .error,
+  .success {
+    font-size: 10px;
+    font-weight: 500;
+    margin-top: 4px;
+  }
+}

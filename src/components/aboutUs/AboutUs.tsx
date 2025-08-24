@@ -1,7 +1,11 @@
 import styles from "./AboutUs.module.scss";
 import Imgs from "../../assets/img/Group 1000003689.svg";
+import { useState } from "react";
+import Modal from "../Modal/Modal";
 
 function AboutUs() {
+  const [openModal, setOpenModal] = useState<boolean>(false);
+
   return (
     <section id="about" className="container">
       <div className={styles.aboutUs}>
@@ -17,10 +21,13 @@ function AboutUs() {
             работы и стремимся <br /> обеспечить лучший сервис для наших <br />
             клиентов. С нами ваша техника будет работать <br /> как новая
           </p>
-          <button className={styles.button}>Вызвать мастера</button>
+          <button className={styles.button} onClick={() => setOpenModal(true)}>
+            Вызвать мастера
+          </button>
         </div>
         <img src={Imgs} alt="workers" className={styles.workers} />
       </div>
+      {openModal && <Modal onClose={() => setOpenModal(false)} />}
     </section>
   );
 }

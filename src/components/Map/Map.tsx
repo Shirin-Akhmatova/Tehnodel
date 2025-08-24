@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
@@ -6,6 +7,7 @@ import Location from "../../assets/icons/gps2 1.svg";
 import Watch from "../../assets/icons/w512h5121390855838watch 1.svg";
 import Phone from "../../assets/icons/phone копия 2.svg";
 import CustomZoomControls from "./CustomZoomContols/CustomZoomControls";
+import Modal from "../Modal/Modal";
 
 const customIcon = new L.Icon({
   iconUrl: Location,
@@ -14,6 +16,8 @@ const customIcon = new L.Icon({
 });
 
 const Map: React.FC = () => {
+  const [open, setOpen] = useState(false);
+
   return (
     <div id="contacts" className={styles.map_container}>
       <MapContainer
@@ -55,8 +59,11 @@ const Map: React.FC = () => {
             75 96
           </p>
         </div>
-        <button className={styles.button}>Вызвать мастера</button>
+        <button className={styles.button} onClick={() => setOpen(true)}>
+          Вызвать мастера
+        </button>
       </div>
+      {open && <Modal onClose={() => setOpen(false)} />}
     </div>
   );
 };

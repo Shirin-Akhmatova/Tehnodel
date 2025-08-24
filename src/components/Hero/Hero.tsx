@@ -4,8 +4,12 @@ import Bg from "../../assets/img/Group 492.svg";
 import CheckIcon from "../../assets/icons/Vector.svg";
 import BgAdaptive from "../../assets/img/Ellipse 1.svg";
 import BgAdaptive2 from "../../assets/img/Ellipse 2.svg";
+import Modal from "../Modal/Modal";
+import { useState } from "react";
 
 function Hero() {
+  const [openModal, setOpenModal] = useState<boolean>(false);
+
   return (
     <section className={styles.hero}>
       <div className={styles.container}>
@@ -36,7 +40,9 @@ function Hero() {
             </div>
           </div>
 
-          <button className={styles.button}>Вызвать мастера</button>
+          <button className={styles.button} onClick={() => setOpenModal(true)}>
+            Вызвать мастера
+          </button>
         </div>
 
         <div className={styles.right}>
@@ -54,6 +60,7 @@ function Hero() {
           <img src={MasterImg} alt="Мастер" className={styles.master} />
         </div>
       </div>
+      {openModal && <Modal onClose={() => setOpenModal(false)} />}
     </section>
   );
 }
