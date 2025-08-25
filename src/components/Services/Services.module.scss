@@ -20,12 +20,14 @@
 
     .services_list {
       display: flex;
-      justify-content: center;
       gap: 2rem;
       overflow-x: auto;
-      margin-top: 2rem;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 1rem;
 
       .service_item {
+        scroll-snap-align: start;
         flex: 0 0 auto;
         display: flex;
         flex-direction: column;
