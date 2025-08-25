@@ -10,7 +10,7 @@ interface ITeam {
   id: number;
   name: string;
   speciality: string;
-  expirience: string;
+  experience: string;
   quantity_reviews: string;
   image: string;
 }
@@ -79,7 +79,7 @@ const OurTeam = () => {
                       <h3>{item.name}</h3>
                       <p>{item.speciality}</p>
                       <h4>Опыт работы:</h4>
-                      <p>{item.expirience}</p>
+                      <p>{item.experience}</p>
                       <h4>Отзывы:</h4>
                       <p>{item.quantity_reviews}</p>
                       <div className={style.stars}>
