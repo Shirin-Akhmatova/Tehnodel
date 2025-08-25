@@ -6,7 +6,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "http://5.101.1.198",
+        target: "http://tehnodel.ru",
         changeOrigin: true,
         secure: false,
       },

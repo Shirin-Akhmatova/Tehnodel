@@ -1,69 +1,45 @@
-import { useMemo } from "react";
-import Evgeni from "../../assets/img/1755786773.png";
-import Stepan from "../../assets/img/1755959519.png";
-import Sergei from "../../assets/img/1755787614.png";
-import Maksim from "../../assets/img/1755960359.png";
 import star from "../../assets/icons/star.svg";
+import empty from "../../assets/img/Empty.svg";
 import style from "./OurTeam.module.scss";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 interface ITeam {
   id: number;
   name: string;
-  job: string;
+  speciality: string;
   expirience: string;
-  feedback: number;
+  quantity_reviews: string;
   image: string;
 }
 
 const OurTeam = () => {
-  const teams: ITeam[] = useMemo(
-    () => [
-      {
-        id: 1,
-        name: "Евгений",
-        job: "Ремонт холодильников",
-        expirience: "15 лет",
-        feedback: 25,
-        image: Evgeni,
-      },
-      {
-        id: 2,
-        name: "Степан",
-        job: "Ремонт духовых шкафов",
-        expirience: "10 лет",
-        feedback: 20,
-        image: Stepan,
-      },
-      {
-        id: 3,
-        name: "Сергей",
-        job: "Ремонт стиральных машин",
-        expirience: "12 лет",
-        feedback: 22,
-        image: Sergei,
-      },
-      {
-        id: 4,
-        name: "Максим",
-        job: "Ремонт электронной плиты",
-        expirience: "18 лет",
-        feedback: 23,
-        image: Maksim,
-      },
-    ],
-    []
-  );
+  const [teams, setTeams] = useState<ITeam[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const width = window.innerWidth;
+  const getTeams = async () => {
+    try {
+      const res = await axios.get("/api/specialist/");
+      setTeams(res.data);
+    } catch (err) {
+      console.error("Ошибка API:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    getTeams();
+  }, []);
 
   return (
     <div id="services" className={style.OurTeam}>
       <div className="container">
         <div className={style.content}>
           <h1>Cпециалисты компании</h1>
+
           <Swiper
             modules={[Pagination]}
             spaceBetween={30}
@@ -75,32 +51,54 @@ const OurTeam = () => {
             pagination={{ clickable: true }}
             className={style.ourteam}
           >
-            {teams.map((item) => (
-              <SwiperSlide key={item.id}>
-                <div className={style.team}>
-                  <img
-                    className={style.profil}
-                    src={item.image}
-                    alt={item.name}
-                  />
-                  <div className={style.info}>
-                    <h3>{item.name}</h3>
-                    <p>{item.job}</p>
-                    <h4>Опыт работы:</h4>
-                    <p>{item.expirience}</p>
-                    <h4>Отзывы:</h4>
-                    <p>{item.feedback}</p>
-                    <div className={style.stars}>
-                      {Array(5)
-                        .fill(null)
-                        .map((_, i) => (
-                          <img key={i} src={star} alt="star" />
-                        ))}
+            {loading ? (
+              Array(3)
+                .fill(null)
+                .map((_, i) => (
+                  <SwiperSlide key={i}>
+                    <div className={style.skeleton}>
+                      <div className={style.skeleton_img}></div>
+                      <div className={style.skeleton_text}></div>
+                      <div className={style.skeleton_text}></div>
+                      <div
+                        className={`${style.skeleton_text} ${style.small}`}
+                      ></div>
+                    </div>
+                  </SwiperSlide>
+                ))
+            ) : teams.length > 0 ? (
+              teams.map((item) => (
+                <SwiperSlide key={item.id}>
+                  <div className={style.team}>
+                    <img
+                      className={style.profil}
+                      src={item.image}
+                      alt={item.name}
+                    />
+                    <div className={style.info}>
+                      <h3>{item.name}</h3>
+                      <p>{item.speciality}</p>
+                      <h4>Опыт работы:</h4>
+                      <p>{item.expirience}</p>
+                      <h4>Отзывы:</h4>
+                      <p>{item.quantity_reviews}</p>
+                      <div className={style.stars}>
+                        {Array(5)
+                          .fill(null)
+                          .map((_, i) => (
+                            <img key={i} src={star} alt="star" />
+                          ))}
+                      </div>
                     </div>
                   </div>
-                </div>
-              </SwiperSlide>
-            ))}
+                </SwiperSlide>
+              ))
+            ) : (
+              <div className={style.Empty}>
+                <img src={empty} alt="empty image" />
+                <h2>Похоже здесь пусто</h2>
+              </div>
+            )}
           </Swiper>
         </div>
       </div>

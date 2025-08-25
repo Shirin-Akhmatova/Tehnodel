@@ -9,7 +9,7 @@ interface ModalProps {
 
 const Modal: React.FC<ModalProps> = ({ onClose }) => {
   const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
+  const [phone_number, setPhoneNumber] = useState("");
   const [address, setAddress] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
@@ -18,7 +18,11 @@ const Modal: React.FC<ModalProps> = ({ onClose }) => {
     e.preventDefault();
     setMessage("");
 
-    if (!name.trim() || !phone.trim() || !address.trim()) {
+    if (
+      !name.trim() ||
+      !phone_number.trim().replace(/\D/g, "") ||
+      !address.trim()
+    ) {
       setMessage("Заполните все поля");
       return;
     }
@@ -29,7 +33,7 @@ const Modal: React.FC<ModalProps> = ({ onClose }) => {
         "/api/applications",
         {
           name: name.trim(),
-          phone_number: phone.trim(),
+          phone_number: phone_number.trim(),
           address: address.trim(),
         },
         { headers: { "Content-Type": "application/json" } }
@@ -38,7 +42,7 @@ const Modal: React.FC<ModalProps> = ({ onClose }) => {
       if (response.status === 201 || response.status === 200) {
         setMessage("Заявка успешно отправлена!");
         setName("");
-        setPhone("");
+        setPhoneNumber("");
         setAddress("");
 
         setTimeout(() => onClose(), 3000);
@@ -86,8 +90,8 @@ const Modal: React.FC<ModalProps> = ({ onClose }) => {
               type="tel"
               placeholder="Телефон"
               className={styles.input}
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
+              value={phone_number}
+              onChange={(e) => setPhoneNumber(e.target.value)}
               maxLength={25}
             />
             <input
