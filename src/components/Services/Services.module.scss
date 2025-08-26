@@ -53,7 +53,6 @@
         }
       }
 
-      // 🔹 Скелетон
       .skeleton {
         flex: 0 0 auto;
         width: 370px;
@@ -104,7 +103,7 @@
 
       .Empty {
         text-align: center;
-
+        width: 100%;
         img {
           width: 120px;
           opacity: 0.7;
