@@ -63,7 +63,7 @@
 .inputs {
   display: flex;
   flex-direction: column;
-  gap: 35px; // gap только между инпутами
+  gap: 35px;
 }
 
 .input {
@@ -120,7 +120,7 @@
   margin-top: 10px;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 500px) {
   .modal {
     max-width: 275px;
     padding: 30px 24px 24px;

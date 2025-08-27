@@ -1,7 +1,7 @@
 .stepsSection {
   margin-bottom: 130px;
 
-  @media (max-width: 375px) {
+  @media (max-width: 500px) {
     margin-bottom: 140px;
   }
 
@@ -12,7 +12,7 @@
     line-height: 60px;
     color: #293241;
 
-    @media (max-width: 375px) {
+    @media (max-width: 500px) {
       font-size: 32px;
       line-height: 39px;
       margin-bottom: 60px;
@@ -25,7 +25,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 50px;
 
-  @media (max-width: 375px) {
+  @media (max-width: 500px) {
     display: none;
   }
 }
@@ -42,7 +42,7 @@
   height: 293px;
   overflow: hidden;
 
-  @media (max-width: 375px) {
+  @media (max-width: 500px) {
     padding: 60px 6px 32px 11px;
     height: auto;
     border-radius: 8px;
@@ -56,7 +56,7 @@
     color: #293241;
     margin-bottom: 20px;
 
-    @media (max-width: 375px) {
+    @media (max-width: 500px) {
       font-size: 18px;
       line-height: 20px;
       margin-bottom: 11px;
@@ -69,7 +69,7 @@
     line-height: 30px;
     font-weight: 500;
 
-    @media (max-width: 375px) {
+    @media (max-width: 500px) {
       font-size: 14px;
       line-height: 15px;
       font-weight: 400;
@@ -95,7 +95,7 @@
   line-height: 44px;
   z-index: 3;
 
-  @media (max-width: 375px) {
+  @media (max-width: 500px) {
     top: -25px;
     left: -15px;
     width: 46px;
@@ -109,7 +109,7 @@
 .slider {
   display: none;
 
-  @media (max-width: 375px) {
+  @media (max-width: 500px) {
     display: block;
     .swiper-pagination-bullet-active {
       background: #053f79;

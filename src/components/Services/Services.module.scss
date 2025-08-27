@@ -21,19 +21,13 @@
 
     .services_list {
       display: flex;
-      gap: 2rem;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
       padding-bottom: 1rem;
 
       .service_item {
-        scroll-snap-align: start;
-        flex: 0 0 auto;
         display: flex;
         flex-direction: column;
         gap: 1rem;
-        width: 370px;
+        width: 350px;
 
         img {
           width: 100%;
@@ -54,8 +48,7 @@
       }
 
       .skeleton {
-        flex: 0 0 auto;
-        width: 370px;
+        width: 340px;
         display: flex;
         flex-direction: column;
         gap: 1rem;
@@ -102,10 +95,9 @@
       }
 
       .Empty {
-        text-align: center;
         width: 100%;
+        text-align: center;
         img {
-          width: 120px;
           opacity: 0.7;
           margin-bottom: 1rem;
         }
@@ -116,14 +108,35 @@
       }
     }
   }
+  :global(.swiper-pagination) {
+    position: relative;
+    margin-top: 3rem;
+    text-align: center;
+  }
+  :global(.swiper-pagination-bullet) {
+    background: #98c1d9;
+    transition: 0.4s;
+    width: 16px;
+    height: 12px;
+    opacity: 0.7;
+  }
+  :global(.swiper-pagination-bullet-active) {
+    background: #053f79;
+    border-radius: 12px;
+    width: 2rem;
+    opacity: 1;
+  }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 500px) {
   .services {
     .content {
       .title {
         h1 {
-          font-size: 2rem;
+          font-size: 1.5rem;
+        }
+        span {
+          font-size: 0.8rem;
         }
       }
       .services_list {
@@ -146,5 +159,15 @@
         }
       }
     }
+  }
+  :global(.swiper-pagination) {
+    margin-top: 2rem;
+  }
+  :global(.swiper-pagination-bullet) {
+    width: 10px;
+    height: 10px;
+  }
+  :global(.swiper-pagination-bullet-active) {
+    width: 1.5rem;
   }
 }

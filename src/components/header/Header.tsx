@@ -71,10 +71,7 @@ function Header() {
               <path className={style.line} d="M7 16 27 16"></path>
             </svg>
           </label>
-          <div
-            style={{ transform: open ? "translateX(45%)" : "" }}
-            className={style.mobileMenu}
-          >
+          <div className={`${style.mobileMenu} ${open ? style.active : ""}`}>
             <nav>
               {nav.map((item) => (
                 <a
