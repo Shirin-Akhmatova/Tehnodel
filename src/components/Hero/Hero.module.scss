@@ -151,6 +151,16 @@
   @media (max-width: 500px) {
     position: absolute;
     top: 34%;
+    left: 47%;
+    width: 532px;
+    height: 472px;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    display: block;
+  }
+  @media (max-width: 375px) {
+    position: absolute;
+    top: 34%;
     left: 48%;
     width: 532px;
     height: 472px;
@@ -165,8 +175,18 @@
 
   @media (max-width: 500px) {
     position: absolute;
-    top: 49%;
+    top: 46%;
     left: 53%;
+    width: 465px;
+    height: 411px;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    display: block;
+  }
+  @media (max-width: 375px) {
+    position: absolute;
+    top: 49%;
+    left: 45%;
     width: 415px;
     height: 368px;
     transform: translate(-50%, -50%);
