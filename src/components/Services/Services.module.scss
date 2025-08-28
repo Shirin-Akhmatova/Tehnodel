@@ -95,9 +95,11 @@
       }
 
       .Empty {
-        width: 100%;
         text-align: center;
+        margin-right: 25rem;
         img {
+          width: clamp(15.625rem, 12.216rem + 17.05vw, 25rem);
+          height: clamp(12.5rem, 10.227rem + 11.36vw, 18.75rem);
           opacity: 0.7;
           margin-bottom: 1rem;
         }

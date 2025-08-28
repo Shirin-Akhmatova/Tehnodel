@@ -86,16 +86,13 @@ const ReviewsCarousel: React.FC = () => {
       <Swiper
         modules={[Pagination, Mousewheel]}
         breakpoints={{
-          0: {
-            slidesPerView: 1,
-          },
-          768: {
-            slidesPerView: 2,
-          },
-          1024: {
-            slidesPerView: 3,
-          },
+          0: { slidesPerView: 1 },
+          500: { slidesPerView: 1.4 },
+          768: { slidesPerView: 1.8 },
+          1040: { slidesPerView: 2.8 },
+          1280: { slidesPerView: 3 },
         }}
+        spaceBetween={150}
         centeredSlides={true}
         loop={true}
         mousewheel={{ forceToAxis: true }}
